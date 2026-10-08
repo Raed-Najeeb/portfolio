@@ -6,7 +6,7 @@ const projects=[
 {id:'01',kicker:'MODEL INTERNALS',title:'nanoGPT From Scratch',desc:'A character-level transformer built from the mechanism up, including attention, causal masking, and the training loop.',meta:'CAUSAL MASKING · ATTENTION · PYTORCH',evidence:'LOSS 0.06 → NOISE → MASK BUG → 1.77 / 1.90',github:'https://github.com/Raed-Najeeb/nanogpt-from-scratch'},
 {id:'02',kicker:'RETRIEVAL',title:'RAG Pipeline',desc:'A local retrieval-augmented generation pipeline using embeddings, ChromaDB, and a local Llama model.',meta:'EMBEDDINGS · CHROMADB · LLAMA 3.1 8B',evidence:'8 / 8 LABELED RETRIEVALS · REFUSAL CHECK',github:'https://github.com/Raed-Najeeb/rag-pipeline'},
 {id:'03',kicker:'FINE-TUNING',title:'LoRA Fine-Tuning',desc:'An ongoing experiment comparing fine-tuning with a well-prompted base model to understand when the extra complexity is justified.',meta:'LORA / QLORA · OPEN-WEIGHT MODELS',evidence:'RESULTS PENDING'},
-{id:'04',kicker:'AGENTIC SYSTEM',title:'CareerMate',desc:'An interview and candidate-evaluation system covering interviewing, scoring, and proctoring.',meta:'INTERVIEWING · SCORING · PROCTORING',evidence:'DETAILS IN PROGRESS'}
+{id:'04',kicker:'AGENTIC SYSTEM',title:'CareerMate',desc:'An agentic AI recruitment system combining resume screening, AI interviewing, behavioral analysis, and computer-vision proctoring.',meta:'RESUME SCREENING · AI INTERVIEWING · PROCTORING',evidence:'GEMINI · DJANGO · OPENCV · DEEPFACE',github:'https://github.com/chythrashokan/CareerMate'}
 ];
 
 function App(){
