@@ -1,78 +1,129 @@
-import React,{useEffect,useState} from 'react';
-import {createRoot} from 'react-dom/client';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 import './style.css';
-
 
 const projects = [
   {
-    id: '01',
-    kicker: 'MODEL INTERNALS',
-    title: 'nanoGPT From Scratch',
-    desc: 'A character-level transformer built from the mechanism up, including attention, causal masking, and the training loop.',
-    meta: 'CAUSAL MASKING · ATTENTION · PYTORCH',
-    evidence: 'LOSS 0.06 → NOISE → MASK BUG → 1.77 / 1.90',
-    github: 'https://github.com/Raed-Najeeb/nanogpt-from-scratch'
+    number: '01', category: 'TRANSFORMERS', title: 'nanoGPT from scratch',
+    description: 'A character-level GPT implemented in PyTorch to understand token embeddings, causal self-attention, transformer blocks, and training.',
+    stack: 'PYTORCH · SELF-ATTENTION · LANGUAGE MODELING',
+    result: 'TRAINING / VALIDATION LOSS: 1.77 / 1.90',
+    href: 'https://github.com/Raed-Najeeb/nanogpt-from-scratch', link: 'View repository'
   },
   {
-    id: '02',
-    kicker: 'RETRIEVAL',
-    title: 'RAG Pipeline',
-    desc: 'A local retrieval-augmented generation pipeline using embeddings, ChromaDB, and a local Llama model.',
-    meta: 'EMBEDDINGS · CHROMADB · LLAMA 3.1 8B',
-    evidence: '8 / 8 LABELED RETRIEVALS · REFUSAL CHECK',
-    github: 'https://github.com/Raed-Najeeb/rag-pipeline'
+    number: '02', category: 'RETRIEVAL & GROUNDING', title: 'RAG pipeline',
+    description: 'A local retrieval-augmented generation pipeline using sentence embeddings, ChromaDB, and Llama 3.1, with retrieval checks and refusal behavior.',
+    stack: 'OLLAMA · CHROMADB · SENTENCE TRANSFORMERS',
+    result: '8 / 8 LABELED RETRIEVAL CHECKS PASSED',
+    href: 'https://github.com/Raed-Najeeb/rag-pipeline', link: 'View repository'
   },
   {
-    id: '03',
-    kicker: 'PARAMETER-EFFICIENT FINE-TUNING',
-    title: 'Emotion Classification with LoRA',
-    desc: 'Compared full fine-tuning of DistilBERT with a LoRA adaptation on the six-class dair-ai/emotion dataset, using held-out test metrics and a small inference test suite.',
-    meta: 'DISTILBERT · HUGGING FACE · PEFT · PYTORCH',
-    evidence: 'LORA: 91.65% ACCURACY · 0.877 MACRO F1 · 1.10% TRAINABLE PARAMETERS',
-    github: 'https://github.com/Raed-Najeeb/emotion-lora'
+    number: '03', category: 'MODEL ADAPTATION', title: 'Emotion classification with LoRA',
+    description: 'Compared a full fine-tuning baseline with a parameter-efficient LoRA adaptation of DistilBERT on a six-class emotion dataset.',
+    stack: 'HUGGING FACE · PEFT · PYTORCH',
+    result: '91.65% ACCURACY · 0.877 MACRO F1 · 1.10% TRAINABLE PARAMETERS',
+    href: 'https://github.com/Raed-Najeeb/emotion-lora', link: 'View repository'
   },
   {
-    id: '04',
-    kicker: 'LLM EVALUATION · IN PROGRESS',
-    title: 'EvalLab',
-    desc: 'A Python-based LLM evaluation framework under active development, with a structured evaluation dataset, schema validation, automated tests, and an initial evaluation runner. The current focus is building reliable evaluation foundations before adding more advanced techniques.',
-    meta: 'PYTHON · DATASET VALIDATION · AUTOMATED TESTS · EVALUATION RUNNER',
-    evidence: '15 TESTS PASSING · INITIAL 4-QUESTION EVALUATION DATASET'
+    number: '04', category: 'LLM EVALUATION', title: 'EvalLab',
+    description: 'A small, tested evaluation pipeline that loads a fixed corpus and evaluation dataset, runs a deterministic baseline system, calculates retrieval and abstention metrics, and writes a JSON report.',
+    stack: 'PYTHON · PYDANTIC · PYTEST · RETRIEVAL METRICS',
+    result: '18 TESTS PASSING · JSON EVALUATION REPORT',
+    href: 'https://github.com/Raed-Najeeb/Evallab', link: 'View repository'
   },
   {
-    id: '05',
-    kicker: 'AGENTIC SYSTEM',
-    title: 'CareerMate',
-    desc: 'An agentic AI recruitment system combining resume screening, AI interviewing, behavioral analysis, and computer-vision proctoring.',
-    meta: 'RESUME SCREENING · AI INTERVIEWING · PROCTORING',
-    evidence: 'GEMINI · DJANGO · OPENCV · DEEPFACE',
-    github: 'https://github.com/chythrashokan/CareerMate'
+    number: '05', category: 'AGENTIC APPLICATION', title: 'CareerMate',
+    description: 'An AI-assisted recruitment project combining resume screening, interview workflows, behavioral analysis, and computer-vision proctoring.',
+    stack: 'DJANGO · GEMINI · OPENCV · DEEPFACE',
+    result: 'MULTI-COMPONENT RECRUITMENT WORKFLOW',
+    href: 'https://github.com/chythrashokan/CareerMate', link: 'View project'
   }
 ];
 
+function App() {
+  return (
+    <div className="site-shell">
+      <header className="site-header">
+        <a className="wordmark" href="#home" aria-label="Raed Najeeb, home">Raed Najeeb<span>.</span></a>
+        <nav aria-label="Main navigation">
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a className="header-resume" href="/resume.pdf" target="_blank" rel="noreferrer">Resume <span aria-hidden="true">↗</span></a>
+      </header>
 
-function App(){
- const[boot,setBoot]=useState(true); const[active,setActive]=useState(null);
- useEffect(()=>{const t=setTimeout(()=>setBoot(false),950);return()=>clearTimeout(t)},[]);
- return <div className="site">
- {boot&&<div className="boot"><div className="boot-card"><span>RAED NAJEEB</span><b>AI ENGINEER</b><i/></div></div>}
- <header><a className="logo" href="#top">RN<span>/</span>26</a><nav><a href="#work">WORK</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav><a className="resume-link" href="/resume.pdf" download>DOWNLOAD RESUME <span>↓</span></a><span className="status"><i/> AVAILABLE FOR OPPORTUNITIES</span></header>
- <main id="top">
- <section className="hero">
-   <div className="eyebrow">AI ENGINEER / LLM SYSTEMS / INDIA</div>
-   <div className="hero-copy"><div className="hero-label">AI ENGINEER</div><h1>RAED<br/><span>NAJEEB</span></h1><div className="hero-role">LLM SYSTEMS / APPLIED AI</div><p>I build LLM systems from the mechanism up, and I verify them.</p></div>
-   <div className="hero-bottom"><span>SCROLL TO EXPLORE</span><a href="#work" className="circle">WORK<br/>↓</a></div>
-   <div className="orb"><div/><div/><div/><span>Q</span><span>K</span><span>V</span></div>
- </section>
- <section className="intro"><div className="section-index">01 — PROFILE</div><div className="intro-copy"><p className="lead">I’m an early-career AI engineer interested in how language models work, where they fail, and how to build systems around them carefully.</p><div className="intro-grid"><p>My work spans transformer internals, retrieval, grounding, local models, and experiments with fine-tuning and agentic applications.</p><a href="#about" className="text-link">MORE ABOUT ME <span>↗</span></a></div></div></section>
- <section id="work" className="work"><div className="section-head"><span>02 — SELECTED WORK</span><span>05 PROJECTS</span></div>{projects.map((p,i)=><article className="project" key={p.id}>
-   <div className="num">{p.id}</div><div className="project-main"><div className="kicker">{p.kicker}</div><h3>{p.title}</h3><p>{p.desc}</p><div className="meta">{p.meta}</div><div className="evidence">&gt; {p.evidence}</div><div className="actions"><button onClick={()=>setActive(p)}>INSPECT <span>↗</span></button>{p.github&&<a href={p.github} target="_blank" rel="noreferrer">GITHUB <span>↗</span></a>}</div></div>
-   <div className="project-art"><div className={'art art'+i}><span>{i===0?'Q·K·V':i===1?'VECTOR':i===2?'ΔW':i===3?'EVAL':'AGENT'}</span><div className="art-line"/></div></div>
- </article>)}</section>
- <section id="about" className="about"><div className="section-index">03 — ABOUT</div><div className="about-copy"><h2>AI ENGINEERING,<br/><span>CAREFULLY.</span></h2><p>I’m building a foundation across the LLM lifecycle: understanding model internals, evaluating retrieval, working with local/open-weight models, and learning where fine-tuning or agents actually add value.</p><div className="facts"><div><b>EDUCATION</b><span>B.Tech AI & Data Science</span></div><div><b>GRADUATION</b><span>Aug 2026 · CGPA 7.95</span></div><div><b>QUALIFICATION</b><span>GATE DA qualified</span></div></div></div></section>
- <section id="contact" className="contact"><div className="section-index">04 — CONTACT</div><div className="contact-copy"><h2>GET IN TOUCH</h2><p>I’m open to opportunities where I can keep learning, build useful systems, and contribute to a strong engineering team.</p><div className="contact-links"><a href="mailto:raednajeeb@gmail.com">EMAIL <span>↗</span></a><a href="https://github.com/Raed-Najeeb" target="_blank" rel="noreferrer">GITHUB <span>↗</span></a><a href="/resume.pdf" download>DOWNLOAD RESUME <span>↓</span></a></div></div></section>
- </main><footer><span>RAED NAJEEB</span><span>AI ENGINEER / 2026</span></footer>
- {active&&<div className="modal" onClick={()=>setActive(null)}><div className="modal-box" onClick={e=>e.stopPropagation()}><button onClick={()=>setActive(null)}>CLOSE ×</button><span>{active.id} / {active.kicker}</span><h2>{active.title}</h2><p>{active.desc}</p><div className="evidence">&gt; {active.evidence}</div>{active.github&&<a href={active.github} target="_blank" rel="noreferrer">OPEN REPOSITORY ↗</a>}</div></div>}
- </div>
+      <main>
+        <section className="hero section-wrap" id="home">
+          <div className="hero-content">
+            <div className="eyebrow"><span className="status-dot" /> EARLY-CAREER AI ENGINEER <span className="eyebrow-divider">/</span> INDIA</div>
+            <h1>Raed Najeeb<span>.</span></h1>
+            <p className="hero-summary">AI & Data Science graduate learning by building and testing language-model systems.</p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#projects">Explore projects <span aria-hidden="true">↓</span></a>
+              <a className="button button-secondary" href="https://github.com/Raed-Najeeb" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <div className="hero-note" aria-label="Areas of focus">
+            <span>FOCUS AREAS</span>
+            <p>LLM systems<br />Retrieval & grounding<br />Evaluation</p>
+          </div>
+        </section>
+
+        <section className="projects section-wrap" id="projects">
+          <div className="section-heading">
+            <div><span className="section-kicker">SELECTED WORK</span><h2>Projects</h2></div>
+            <p>A few projects exploring how AI systems work, where they fail, and how to test them.</p>
+          </div>
+          <div className="project-list">
+            {projects.map((project) => (
+              <article className="project-row" key={project.number}>
+                <div className="project-number">{project.number}</div>
+                <div className="project-content">
+                  <div className="project-category">{project.category}</div>
+                  <h3>{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                  <div className="project-stack">{project.stack}</div>
+                  <div className="project-bottom">
+                    <span className="project-result"><span aria-hidden="true">↳</span> {project.result}</span>
+                    <a href={project.href} target="_blank" rel="noreferrer">{project.link} <span aria-hidden="true">↗</span></a>
+                  </div>
+                </div>
+                <div className="project-mark" aria-hidden="true"><span>{project.number}</span><i /></div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="about section-wrap" id="about">
+          <div className="section-label"><span className="section-kicker">A LITTLE ABOUT ME</span></div>
+          <div className="about-content">
+            <h2>Learning by building.<br /><span>One project at a time.</span></h2>
+            <p>I’m a recent AI & Data Science graduate, and I learn by building things and checking whether they work. My projects include a small GPT built from scratch, a local RAG pipeline, a LoRA fine-tuning experiment, and EvalLab, a tested evaluation pipeline with retrieval and abstention metrics. I’m interested in understanding what’s happening under the hood and looking for a role where I can keep learning through practical engineering work.</p>
+            <div className="about-facts">
+              <div><span>EDUCATION</span><strong>B.Tech, AI & Data Science</strong></div>
+              <div><span>GRADUATED</span><strong>August 2026</strong></div>
+              <div><span>QUALIFICATION</span><strong>GATE DA qualified</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="contact section-wrap" id="contact">
+          <div><span className="section-kicker">CONTACT</span><h2>Let’s talk.</h2></div>
+          <div className="contact-content">
+            <p>I’m looking for opportunities to contribute, learn from real engineering work, and grow in AI/ML or AI evaluation.</p>
+            <div className="contact-links">
+              <a href="mailto:raednajeeb@gmail.com">Email me <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Raed-Najeeb" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+              <a href="/resume.pdf" target="_blank" rel="noreferrer">View resume <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer"><a className="wordmark" href="#home">Raed Najeeb<span>.</span></a><span>Designed to keep the work in focus.</span><span>© 2026 Raed Najeeb</span></footer>
+    </div>
+  );
 }
-createRoot(document.getElementById('root')).render(<App/>);
+
+createRoot(document.getElementById('root')).render(<App />);
