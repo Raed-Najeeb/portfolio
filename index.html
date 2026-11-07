@@ -1,14 +1,115 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0b0d0b" />
-    <meta name="description" content="Raed Najeeb — early-career AI engineer focused on language models, retrieval systems, and reliable evaluation." />
-    <title>Raed Najeeb — AI Engineer</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Raed Najeeb's Homepage ~ AI Engineer</title>
+<meta name="description" content="Raed Najeeb: AI & Data Science graduate building and testing language-model systems.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'><text y='9' font-size='9'>💾</text></svg>">
+<style>
+:root{--blue:#0a4fd6;--face:#ece9d8}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;overflow:hidden;font:13px Tahoma,Verdana,sans-serif;color:#000;
+ cursor:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><path d='M2 1l12 8-5 1 3 7-3 1-3-7-4 4z' fill='white' stroke='black'/></svg>") 2 1,auto}
+body{background:linear-gradient(#2a6ee0,#8fc6ff 60%,#d9efff);position:fixed;inset:0;padding-top:env(safe-area-inset-top,0px)}
+body::before{content:"";position:fixed;left:-20%;right:-20%;bottom:-30vh;height:60vh;background:radial-gradient(ellipse at 50% 0,#6bbf3a,#2f8a1c 70%);border-radius:50%;z-index:0}
+#stars{position:fixed;inset:0;z-index:0}
+.mq{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;height:24px;background:#000;color:#0f0;font:bold 14px "Courier New",monospace;overflow:hidden;z-index:50;border-bottom:2px solid #ff0}
+.mq span{display:inline-block;white-space:nowrap;padding-left:100%;animation:mq 28s linear infinite;line-height:24px}
+@keyframes mq{to{transform:translateX(-100%)}}
+#icons{position:fixed;top:36px;left:10px;display:grid;gap:8px;z-index:5}
+.ic{width:84px;text-align:center;color:#fff;text-shadow:1px 1px 2px #000,0 0 4px #000;background:none;border:1px dotted transparent;font:12px Tahoma;padding:4px;cursor:pointer}
+.ic b{display:block;font-size:34px;line-height:1.1}
+.ic:hover,.ic:focus-visible{background:rgba(0,0,128,.5);border-color:#fff;outline:none}
+.win{position:absolute;min-width:250px;background:var(--face);border:3px solid var(--blue);border-top:0;border-radius:9px 9px 0 0;box-shadow:4px 4px 0 rgba(0,0,0,.35);z-index:10;display:flex;flex-direction:column;max-height:calc(100% - 80px)}
+.win.pop{animation:pop .18s ease-out}
+@keyframes pop{from{transform:scale(.85);opacity:0}}
+.tb{background:linear-gradient(#3d95ff,#0a5be0 45%,#0848c4);color:#fff;font-weight:bold;padding:4px 5px;display:flex;align-items:center;gap:6px;border-radius:7px 7px 0 0;cursor:move;touch-action:none;user-select:none;text-shadow:1px 1px #003}
+.tb i{flex:1;font-style:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb button{width:22px;height:22px;border:1px solid #fff;border-radius:4px;background:#2b6ff0;color:#fff;font:bold 13px Tahoma;line-height:1;cursor:pointer;padding:0}
+.tb button.x{background:#d9442a}
+.bd{padding:12px;overflow:auto;background:#fff;margin:3px;border:2px inset #999;line-height:1.5}
+.win.min{display:none}.win.act .tb{filter:none}.win:not(.act) .tb{filter:saturate(.3) brightness(1.15)}
+h1{font:bold 40px "Comic Sans MS","Chalkboard SE",cursive;margin:0 0 4px;background:linear-gradient(90deg,red,orange,#cc0,green,blue,violet);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(2px 2px 0 #000);line-height:1.1}
+h2{font:bold 18px "Comic Sans MS",cursive;margin:0 0 6px;color:#00c}
+.blink{animation:bl 1s steps(2) infinite;color:red;font-weight:bold}@keyframes bl{50%{visibility:hidden}}
+hr.rb{border:0;height:5px;background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,violet);margin:10px 0}
+a{color:#00e}a:visited{color:#609}
+.pr{border:2px outset #ddd;padding:8px;margin:0 0 10px;background:#ffffe0}
+.pr h2{margin:0}.pr small{display:block;font:11px "Courier New",monospace;color:#555}
+.res{background:#000;color:#0f0;font:12px "Courier New",monospace;padding:4px 6px;margin:6px 0;display:block}
+.btn{display:inline-block;background:var(--face);border:2px outset #fff;padding:3px 12px;color:#000;text-decoration:none;font:13px Tahoma;cursor:pointer}
+.btn:active{border-style:inset}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid #999;padding:3px 6px;text-align:left;vertical-align:top}th{background:#c0c0ff;width:34%}
+#tray{position:fixed;left:0;right:0;bottom:0;height:34px;background:linear-gradient(#3f8cf3,#245edb 15%,#245edb 85%,#1941a5);display:flex;align-items:center;gap:4px;padding:0 0 env(safe-area-inset-bottom,0px);z-index:60;border-top:2px solid #5aa0ff;box-sizing:content-box}
+#start{height:30px;background:linear-gradient(#5ec45e,#2f9a2f);border:0;border-radius:0 14px 14px 0;color:#fff;font:italic bold 17px Tahoma;padding:0 18px 0 10px;cursor:pointer;text-shadow:1px 1px #040}
+#tasks{flex:1;display:flex;gap:3px;overflow:hidden}
+#tasks button{max-width:140px;flex:1;height:26px;background:#3a7cf0;border:1px solid #1a3d99;border-radius:3px;color:#fff;font:12px Tahoma;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;cursor:pointer}
+#tasks button.on{background:#1b4cc2;box-shadow:inset 1px 1px 3px #000}
+#clock{background:#0f8bea;color:#fff;padding:7px 10px;font-size:12px;border-left:1px solid #0a4fd6}
+#menu{position:fixed;left:0;bottom:calc(34px + env(safe-area-inset-bottom,0px));width:230px;background:#fff;border:2px solid #0a4fd6;z-index:70;display:none;box-shadow:4px 4px 0 rgba(0,0,0,.3)}
+#menu.on{display:block}#menu h3{margin:0;padding:10px;background:linear-gradient(#245edb,#4a8cf5);color:#fff;font:bold 15px Tahoma}
+#menu button{display:block;width:100%;text-align:left;border:0;background:#fff;padding:8px 12px;font:13px Tahoma;cursor:pointer}#menu button:hover{background:#316ac5;color:#fff}
+.sp{position:fixed;pointer-events:none;z-index:99;font-size:16px;animation:sp .8s forwards}@keyframes sp{to{transform:translateY(24px) scale(.2) rotate(120deg);opacity:0}}
+#clip{position:fixed;right:14px;bottom:50px;z-index:55;max-width:230px;display:flex;flex-direction:column;align-items:flex-end}
+#clip .bb{background:#ffffcc;border:1px solid #000;border-radius:8px;padding:8px 10px;font-size:12px;margin-bottom:4px;position:relative}
+#clip .bb button{position:absolute;top:0;right:3px;border:0;background:none;cursor:pointer;font-size:13px}
+#clip .face{font-size:44px;animation:bob 2s ease-in-out infinite;cursor:pointer;background:none;border:0}@keyframes bob{50%{transform:translateY(-6px) rotate(6deg)}}
+#bsod{position:fixed;inset:0;background:#0000aa;color:#fff;font:16px "Courier New",monospace;padding:6vh 6vw;z-index:200;display:none;cursor:pointer}
+#off{position:fixed;inset:0;background:#000;color:#f90;z-index:210;display:none;align-items:center;justify-content:center;text-align:center;font:20px "Courier New",monospace;padding:20px;cursor:pointer}
+input,textarea{font:13px Tahoma;width:100%;margin:2px 0 6px;border:2px inset #999;padding:3px}
+.cnt{display:inline-block;background:#000;color:#f00;font:bold 16px "Courier New",monospace;letter-spacing:3px;padding:1px 6px;border:2px inset #888}
+@media(max-width:700px){#icons{grid-template-columns:repeat(3,1fr);left:6px;right:6px;top:30px}.ic b{font-size:28px}.win{left:2%!important;width:96%!important;top:150px!important;max-height:calc(100% - 200px)}h1{font-size:30px}#clip{display:none}}
+@media(prefers-reduced-motion:reduce){.mq span,.blink,#clip .face,.win.pop,.sp{animation:none!important}.mq span{padding-left:8px}}
+</style></head><body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="mq" role="marquee"><span>★ WELCOME TO RAED NAJEEB'S HOMEPAGE ★ AI &amp; DATA SCIENCE GRADUATE ★ BUILDING AND TESTING LANGUAGE-MODEL SYSTEMS ★ SIGN MY GUESTBOOK!!! ★ BEST VIEWED AT 1024x768 IN ANY BROWSER ★ HIRE ME :) ★</span></div>
+<nav id="icons" aria-label="Desktop"></nav>
+<div id="clip" aria-live="polite"></div>
+<div id="menu" role="menu"><h3>Raed Najeeb</h3><div id="mi"></div></div>
+<div id="tray"><button id="start" aria-haspopup="true">⊞ start</button><div id="tasks"></div><div id="clock"></div></div>
+<div id="bsod"><p>A problem has been detected and RAED.EXE has been shut down to prevent damage to your hiring pipeline.</p><p>HIRE_THIS_ENGINEER_NOT_FOUND</p><p>*** STOP: 0x000000FF (0xGATEDA, 0x2026, 0x1.77, 0x1.90)</p><p>Technical information: none of this was a real crash. Click anywhere to carry on.</p></div>
+<div id="off"><div>It is now safe to turn off your computer.<br><br><small>(click to boot again)</small></div></div>
+<script>
+const $=s=>document.querySelector(s),E='raednajeeb@gmail.com',G='https://github.com/Raed-Najeeb';
+const P=[['nanoGPT from scratch','A character-level GPT implemented in PyTorch to understand token embeddings, causal self-attention, transformer blocks, and training.','PyTorch · self-attention · language modeling','Training / validation loss: 1.77 / 1.90','nanogpt-from-scratch'],
+['RAG pipeline','A local retrieval-augmented generation pipeline using sentence embeddings, ChromaDB, and Llama 3.1, with retrieval checks and refusal behavior.','Ollama · ChromaDB · Sentence Transformers','8 / 8 labeled retrieval checks passed','rag-pipeline'],
+['Emotion classification with LoRA','Compared a full fine-tuning baseline with a parameter-efficient LoRA adaptation of DistilBERT on a six-class emotion dataset.','Hugging Face · PEFT · PyTorch','91.65% accuracy · 0.877 macro F1 · 1.10% trainable parameters','emotion-lora'],
+['EvalLab','A small, tested evaluation pipeline that loads a fixed corpus and evaluation dataset, runs a deterministic baseline system, calculates retrieval and abstention metrics, and writes a JSON report.','Python · Pydantic · pytest · retrieval metrics','18 tests passing · JSON evaluation report','Evallab']];
+const W={
+about:{t:'Welcome.html',i:'🏠',l:'About Me',x:150,y:50,w:470,h:`<h1>Raed Najeeb</h1><p><span class="blink">NEW!</span> <b>Early-career AI engineer</b> · India</p><hr class="rb"><p>I'm a recent <b>AI &amp; Data Science</b> graduate, and I learn by building things and checking whether they work. My projects include a small GPT built from scratch, a local RAG pipeline, a LoRA fine-tuning experiment, and EvalLab, a tested evaluation pipeline.</p><p>I'm interested in understanding what's happening under the hood, and I'm looking for a role where I can keep learning through practical engineering work in AI/ML or AI evaluation.</p><p><a class="btn" href="#" data-o="projects">📁 See my projects</a> <a class="btn" href="#" data-o="guest">📖 Sign guestbook</a></p><hr class="rb"><p style="text-align:center">You are visitor number <span class="cnt" id="cnt">0001337</span><br><small>🚧 This site is always under construction 🚧</small></p>`},
+projects:{t:'My Projects',i:'📁',l:'Projects',x:230,y:90,w:560,h:`<p>Double-checked, tested, and linked. Click a title to open the repo.</p>`+P.map(p=>`<div class="pr"><h2><a href="${G}/${p[4]}" target="_blank" rel="noreferrer">💾 ${p[0]}</a></h2><p>${p[1]}</p><small>${p[2]}</small><span class="res">&gt; ${p[3]}</span></div>`).join('')},
+specs:{t:'System Properties',i:'💻',l:'Specs',x:290,y:130,w:470,h:`<h2>General</h2><table><tr><th>Education</th><td>B.Tech, AI &amp; Data Science (Aug 2026)</td></tr><tr><th>Qualification</th><td>GATE DA qualified (2025)</td></tr><tr><th>Focus</th><td>LLM systems, retrieval &amp; grounding, evaluation</td></tr><tr><th>Languages</th><td>Python</td></tr><tr><th>ML / DL</th><td>PyTorch, Transformers, Self-Attention, Embeddings, Evaluation Metrics</td></tr><tr><th>LLM / GenAI</th><td>RAG, Prompt Engineering, LoRA, QLoRA, Local LLM Inference</td></tr><tr><th>Libraries</th><td>Sentence-Transformers, ChromaDB, Hugging Face PEFT, OpenCV</td></tr><tr><th>Tools</th><td>Ollama, Git, GitHub</td></tr></table>`},
+resume:{t:'Resume.pdf',i:'📄',l:'Resume',x:340,y:170,w:380,h:`<h2>📄 Resume.pdf</h2><p>My full resume: summary, skills, projects, and education.</p><p><a class="btn" href="resume.pdf" target="_blank" rel="noreferrer">Open</a> <a class="btn" href="resume.pdf" download="Raed_Najeeb_Resume.pdf">Download</a></p>`},
+mail:{t:'New Message',i:'📧',l:'Contact',x:200,y:110,w:420,h:`<h2>Let's talk.</h2><p>I'm looking for opportunities to contribute, learn from real engineering work, and grow in AI/ML or AI evaluation.</p><p><a class="btn" href="mailto:${E}">📧 Email me</a> <a class="btn" href="${G}" target="_blank" rel="noreferrer">🐙 GitHub</a> <a class="btn" href="resume.pdf" target="_blank" rel="noreferrer">📄 Resume</a></p><p><small>${E}</small></p>`},
+guest:{t:'Guestbook',i:'📖',l:'Guestbook',x:260,y:70,w:430,h:`<h2>Sign my guestbook!</h2><form id="gf"><label>Name<input id="gn" maxlength="30" required></label><label>Message<textarea id="gm" maxlength="200" rows="3" required></textarea></label><button class="btn">Sign it</button></form><hr class="rb"><div id="gl"></div><small>Saved in this browser only.</small>`}};
+const wins={};let z=10,n=0;
+const ctx=window.AudioContext?new AudioContext():null;
+function beep(f=660,d=.06){if(!ctx)return;try{const o=ctx.createOscillator(),g=ctx.createGain();o.type='square';o.frequency.value=f;g.gain.value=.04;o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+d)}catch(e){}}
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function front(k){Object.values(wins).forEach(w=>w.el.classList.remove('act'));const w=wins[k];w.el.classList.remove('min');w.el.classList.add('act');w.el.style.zIndex=++z;sync()}
+function sync(){$('#tasks').innerHTML='';for(const k in wins){const b=document.createElement('button');b.textContent=W[k].i+' '+W[k].t;b.className=wins[k].el.classList.contains('act')&&!wins[k].el.classList.contains('min')?'on':'';b.onclick=()=>{const e=wins[k].el;e.classList.contains('act')&&!e.classList.contains('min')?(e.classList.add('min'),e.classList.remove('act'),sync()):front(k)};$('#tasks').append(b)}}
+function open(k){beep(880);$('#menu').classList.remove('on');if(wins[k])return front(k);const d=W[k],e=document.createElement('section');e.className='win pop';e.setAttribute('aria-label',d.t);const o=(n++%6)*22;e.style.cssText=`left:${d.x+o}px;top:${d.y+o}px;width:${d.w}px`;
+ e.innerHTML=`<div class="tb"><span>${d.i}</span><i>${d.t}</i><button aria-label="Minimize">_</button><button class="x" aria-label="Close">×</button></div><div class="bd">${d.h}</div>`;document.body.append(e);wins[k]={el:e};
+ const [m,x]=e.querySelectorAll('.tb button');m.onclick=()=>{e.classList.add('min');e.classList.remove('act');sync()};x.onclick=()=>{beep(330);e.remove();delete wins[k];sync()};
+ e.addEventListener('pointerdown',()=>front(k));
+ e.querySelectorAll('[data-o]').forEach(a=>a.onclick=ev=>{ev.preventDefault();open(a.dataset.o)});
+ const tb=e.querySelector('.tb');tb.onpointerdown=ev=>{if(ev.target.tagName==='BUTTON'||innerWidth<=700)return;const dx=ev.clientX-e.offsetLeft,dy=ev.clientY-e.offsetTop;tb.setPointerCapture(ev.pointerId);tb.onpointermove=m=>{e.style.left=Math.max(-200,Math.min(innerWidth-60,m.clientX-dx))+'px';e.style.top=Math.max(26,Math.min(innerHeight-60,m.clientY-dy))+'px'};tb.onpointerup=()=>tb.onpointermove=null};
+ if(k==='about'){let c=+(localStorage.rv||1336)+1;try{localStorage.rv=c}catch(e){}$('#cnt').textContent=String(c).padStart(7,'0')}
+ if(k==='guest')guest();front(k)}
+function guest(){const g=()=>{let a=[];try{a=JSON.parse(localStorage.gb||'[]')}catch(e){}return a};const r=()=>{$('#gl').innerHTML=[...g(),{n:'Webmaster',m:'Welcome to my homepage! Thanks for stopping by :)'}].reverse().map(x=>`<p><b>${esc(x.n)}</b> says:<br>${esc(x.m)}</p>`).join('')};r();$('#gf').onsubmit=e=>{e.preventDefault();const a=g();a.push({n:$('#gn').value,m:$('#gm').value});try{localStorage.gb=JSON.stringify(a.slice(-30))}catch(x){}e.target.reset();beep(990);r()}}
+$('#icons').innerHTML=Object.keys(W).map(k=>`<button class="ic" data-k="${k}"><b>${W[k].i}</b>${W[k].l}</button>`).join('');
+document.querySelectorAll('.ic').forEach(b=>b.onclick=()=>open(b.dataset.k));
+$('#mi').innerHTML=Object.keys(W).map(k=>`<button data-k="${k}">${W[k].i} ${W[k].l}</button>`).join('')+'<button id="cr">💥 Crash me</button><button id="sd">⏻ Shut down</button>';
+document.querySelectorAll('#mi [data-k]').forEach(b=>b.onclick=()=>open(b.dataset.k));
+$('#start').onclick=e=>{e.stopPropagation();beep(520);$('#menu').classList.toggle('on')};document.addEventListener('pointerdown',e=>{if(!e.target.closest('#menu,#start'))$('#menu').classList.remove('on')});
+$('#cr').onclick=()=>{$('#menu').classList.remove('on');$('#bsod').style.display='block';beep(120,.5)};$('#bsod').onclick=()=>$('#bsod').style.display='none';
+$('#sd').onclick=()=>{$('#menu').classList.remove('on');$('#off').style.display='flex'};$('#off').onclick=()=>$('#off').style.display='none';
+const tick=()=>$('#clock').textContent=new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});tick();setInterval(tick,15000);
+const tips=['It looks like you\'re reviewing a portfolio. Would you like help hiring an AI engineer?','Tip: double-check that retrieval metrics are tested. Raed did: 8 / 8 passed.','Fun fact: the nanoGPT causal mask bug was found and fixed. Try the Projects folder!','Psst... the Start menu has a Crash me button. Totally safe.','Windows can be dragged. Go on, rearrange everything.'];
+let ti=0;const clip=$('#clip');function say(){clip.innerHTML=`<div class="bb"><button aria-label="Dismiss">×</button>${tips[ti++%tips.length]}</div><button class="face" aria-label="Show another tip">📎</button>`;clip.querySelector('.bb button').onclick=()=>clip.querySelector('.bb').remove();clip.querySelector('.face').onclick=say}
+setTimeout(say,2500);
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(!rm){addEventListener('pointermove',e=>{if(Math.random()>.45)return;const s=document.createElement('span');s.className='sp';s.textContent=['✨','⭐','💫'][Math.random()*3|0];s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';document.body.append(s);setTimeout(()=>s.remove(),800)})}
+const cv=$('#stars'),c=cv.getContext('2d');let S=[];function rs(){cv.width=innerWidth;cv.height=innerHeight;S=Array.from({length:60},()=>({x:Math.random()*cv.width,y:Math.random()*cv.height*.6,r:Math.random()*1.6+.4,p:Math.random()*6}))}rs();addEventListener('resize',rs);
+(function f(t){c.clearRect(0,0,cv.width,cv.height);S.forEach(s=>{c.globalAlpha=rm?.8:.5+.5*Math.sin(t/500+s.p);c.fillStyle='#fff';c.fillRect(s.x,s.y,s.r,s.r)});if(!rm)requestAnimationFrame(f)})(0);
+open('about');
+</script></body></html>
