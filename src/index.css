@@ -1,0 +1,17 @@
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/geist-mono';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --bg: 12 12 13; --fg: 236 236 236; --muted: 150 150 156; --line: 255 255 255; --accent: 124 156 255; color-scheme: dark; }
+[data-theme='light'] { --bg: 250 249 246; --fg: 24 24 27; --muted: 100 100 108; --line: 0 0 0; --accent: 59 91 219; color-scheme: light; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { @apply bg-bg font-sans text-fg antialiased; font-size: 16px; line-height: 1.7; overflow-x: hidden; transition: background-color .5s ease, color .5s ease; }
+::selection { background: rgb(var(--accent) / .35); }
+:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 3px; border-radius: 3px; }
+.mono { @apply font-mono text-[12px] tracking-[0.01em]; }
+.ulink { background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat; background-color: transparent; padding-bottom: 1px; opacity: .85; transition: opacity .25s, color .25s, background-size .35s; }
+.ulink:hover, .ulink:focus-visible { color: rgb(var(--accent)); opacity: 1; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition-duration: .01ms !important; } }
